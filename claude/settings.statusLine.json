@@ -1,0 +1,8 @@
+{
+  "statusLine": {
+    "type": "command",
+    "command": "node \"$HOME/.claude/frieren-statusline.js\"",
+    "padding": 0,
+    "refreshInterval": 1
+  }
+}
