@@ -1,11 +1,10 @@
 # Jepa — a Herdr layout
 
 A Rosé Pine Moon layout for [Herdr](https://herdr.dev): translucent sidebar,
-pill tabs, rounded pane cards over a soft purple gradient, and a
-Repositories list that gives each repo its own space with Claude in it.
+pill tabs and rounded pane cards over a soft purple gradient.
 Comes with a matching Frieren status line for Claude Code.
 
-![Jepa with the Frieren wallpaper, the Repositories list and the status line](docs/images/overview.png)
+![Jepa with the Frieren wallpaper and the status line](docs/images/overview.png)
 
 *Screenshots use the optional Frieren wallpaper; the account email and repo
 and branch names are blurred.*
@@ -18,12 +17,11 @@ Copy the layout and its theme into your Herdr home and switch to it:
 git clone https://github.com/Ol11veira/herdr-layout-jepa
 cp herdr-layout-jepa/layouts/jepa.json ~/.config/herdr-app/layouts/
 cp herdr-layout-jepa/themes/jepa.json  ~/.config/herdr-app/themes/
-cp -r herdr-layout-jepa/mods/repositories ~/.config/herdr-app/mods/
 herdr-app do layout.switch '{"name":"jepa"}'
 ```
 
 `ctrl-shift-l` switches back to your previous layout. If you already have a
-layout, theme or mod with these names, rename them (and `"theme"` in the
+layout or theme with these names, rename them (and `"theme"` in the
 layout) before copying.
 
 ### Frieren wallpaper (optional)
@@ -37,15 +35,6 @@ cp herdr-layout-jepa/backgrounds/frieren.jpg ~/.config/herdr-app/backgrounds/
 then replace the root `background` in `layouts/jepa.json` with
 `{ "image": "backgrounds/frieren.jpg", "fit": "cover" }`. See **Watch out** in
 [RECIPE.md](RECIPE.md) for opacity on bright images.
-
-## Repositories
-
-![Sidebar: Repositories, Spaces and Agents](docs/images/sidebar.png)
-
-A list of the repos you work on, above Spaces. Click one to go to its space,
-or to make one named after the repo, in its folder, running `claude`: one
-Claude per repo. `+` adds a git repo; right-click opens a second Claude tab or
-removes it from the list. Details in [RECIPE.md](RECIPE.md).
 
 ## Claude Code status line
 

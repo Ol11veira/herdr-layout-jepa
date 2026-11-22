@@ -22,17 +22,6 @@
           "type": "column",
           "children": [
             {
-              "id": "repositories",
-              "type": "block",
-              "content": {
-                "mod": "repositories"
-              },
-              "size": {
-                "weight": 1
-              },
-              "min": 90
-            },
-            {
               "id": "spaces",
               "type": "block",
               "content": {

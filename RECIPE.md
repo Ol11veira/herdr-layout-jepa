@@ -1,7 +1,7 @@
 # Jepa
 
-A calm Rosé Pine Moon workspace: a translucent sidebar with repositories, spaces
-and agents on the left, pill tabs on top, every pane a rounded card with a
+A calm Rosé Pine Moon workspace: a translucent sidebar with spaces and agents
+on the left, pill tabs on top, every pane a rounded card with a
 header, all floating over a soft purple gradient (or your own wallpaper).
 Terminals use the full Rosé Pine Moon palette, with iris purple as the accent,
 and Ubuntu Sans / Ubuntu Sans Mono for type.
@@ -15,8 +15,8 @@ Left to right:
 - **Sidebar**, 268px, transparent (`#00000000`), not resizable by drag,
   min 44px / max 480px. Top to bottom:
   - Brand bar, 46px (`workspace-chrome`); dragging it moves the window.
-  - Repositories, Spaces and Agents lists, sharing the rest equally (weight 1
-    each, min 90px).
+  - Spaces and Agents lists, sharing the rest equally (weight 1 each, min
+    90px).
   - Footer, 69px (`workspace-chrome` with `footer: true`).
 - **Work area**, the rest of the width:
   - Tab bar, 42px (`tabs`); dragging it moves the window. There is no system
@@ -41,14 +41,6 @@ Left to right:
 
 ## How it behaves
 
-- **Repositories** (`mods/repositories`) is a list you keep: `+` picks a
-  folder (only a git repo is taken), right-click offers **Nova tab com
-  Claude** and **Remover da lista**. Clicking a repo selects the space
-  working in it, or makes one named after the repo, in its folder, running
-  `claude`: one Claude per repo. Each row shows that space's color, branch
-  (not main/master) and agent status; a repo with no space is dimmed. The
-  list is kept in shared state (`shared.json`, key `repositories`).
-
 - Agent status colors: **working** foam `#9ccfd8`, **blocked** love
   `#eb6f92`, **done** gold `#f6c177`, **idle** `#6e6a86`.
 - The focused pane's border turns iris; the others stay `#56526e`.
@@ -61,21 +53,17 @@ Left to right:
 ## Built from
 
 - `layouts/jepa.json`: root `row` → `sidebar` (`column`: `brand`,
-  `sidebar-lists` (`repositories`, `spaces`, `agents`), `sidebar-footer`) and `work`
+  `sidebar-lists` (`spaces`, `agents`), `sidebar-footer`) and `work`
   (`column`: `tabs`, `work-body` (`row`: `main` tab block, `panel` →
   `panel-body` stack of `files` / `changes`), `status`).
 - Root look: `theme: "jepa"`, `colors: {chrome, background}`, `font`,
   `ui_font`, `terminal_padding`, `terminal_opacity`, `divider`,
   `background` gradient, `titlebar: "none"`, `traffic_lights: [12, 16]`.
 - `themes/jepa.json`: the theme, named like the layout so it belongs to it.
-- `mods/repositories`: the one custom mod. It runs `git rev-parse` on the
-  folder you add and starts `claude` in new repo spaces; no network.
 - Shipped mods: `workspace-chrome`, `spaces`, `agents`, `tabs`, `pane`,
   `files`, `changes`, `workspace-status`.
 
 ## Watch out
-
-- **Copy `mods/repositories` too**, or the top of the sidebar stays empty.
 
 - **Copy `themes/jepa.json` too.** It is not under `mods/` or `layouts/`, but
   without it the layout has no theme and falls back to the default colors.
@@ -99,5 +87,3 @@ Left to right:
 - Splitting a pane shows two cards 8px apart; the focused one has an iris
   border.
 - Files and Changes open from the tab bar in a 368px panel on the right.
-- `herdr-app check ~/.config/herdr-app/mods/repositories` passes; adding a
-  repo with `+` lists it, and clicking it opens a space running `claude`.
